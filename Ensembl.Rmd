@@ -1,6 +1,6 @@
 ---
 title: "PhD program - Introduction to Ensembl Genome Browser/Biomart"
-author: "Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
+author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
 date: "2023 March 30th"
 output:
   html_document:
@@ -17,14 +17,13 @@ output:
     keep_tex: yes
     toc: yes
     toc_depth: 2
-bibliography: references.bib    
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/PhDprogram")
 ```
 
-$^2$ GenomEast platform, IGBMC
+$^1$ GenomEast platform, IGBMC
 
 # - Practical session: Ensembl Genome Browser
 ## - Question
@@ -124,7 +123,7 @@ Comment – Go back to the "Gene: BBS5" tab and have a look at the colors of tra
   - Select Yes for « Show variations: »
 
 ![][brca1_displayvariation]
-<details>
+</details>
 
 ## - Question
 Display RNAseq data for breast and skeletal muscle in the genome browser (in BRCA1 gene region).
@@ -349,11 +348,11 @@ Extract the coordinates of all human genes located on chromosomes (exclude scaff
 
 <details>
   <summary> Show answer </summary>
-In Ensembl/BioMart, create a new request (see slide 2.)
+In Ensembl/BioMart, create a new request
 
   - Click on Filters (left panel)
   - Expand the REGION section
-  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 61487 / 68005 Genes
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 62656 / 69299 Genes
   - Click on Attributes (left panel)
   - Select “Features” (selected by default)
   - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
@@ -388,7 +387,7 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
   - Select ID list limit - RefSeq peptide ID(s) and enter the list of IDs in the text box (either comma separated or as a list).
   - HINT: You may have to scroll down the menu to see these.
 
-  - Count shows 4 genes (remember one gene may have multiple splice variants coding for different proteins, that is the reason why these 11 do not correspond to 11 genes).
+  - Count shows 3 genes (remember one gene may have multiple splice variants coding for different proteins, that is the reason why these 11 do not correspond to 11 genes).
 
   - Click on Attributes in the left panel.
   - Select the Features attributes page.

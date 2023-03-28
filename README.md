@@ -1,4 +1,3 @@
-# PhD program
 ## Training material
 
 | Course | Training material |
