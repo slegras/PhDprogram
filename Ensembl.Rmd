@@ -1,0 +1,485 @@
+---
+title: "PhD program - Introduction to Ensembl Genome Browser/Biomart"
+author: "Stephanie Le Gras$^{2}$ - slegras@igbmc.fr"
+date: "2023 March 30th"
+output:
+  html_document:
+    fig_caption: yes
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+    number_sections: yes
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    toc: yes
+    toc_depth: 2
+bibliography: references.bib    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/PhDprogram")
+```
+
+$^2$ GenomEast platform, IGBMC
+
+# - Practical session: Ensembl Genome Browser
+## - Question
+  * What is the assembly version of the human genome available on the current Ensembl release?
+
+<details>
+  <summary> Show answer </summary>
+![][humangenomeassembly]
+</details>
+
+
+  * How many coding genes does the Human genome contain in the current Ensembl release (v109)?
+
+<details>
+  <summary> Show answer </summary>
+![][numberofgenehuman]
+</details>
+
+
+  * How many coding genes does the Human genome contain in the previous assembly (GRCh37 - Ensembl v75)?
+
+<details>
+  <summary> Show answer </summary>
+![][numberofgenehumangrch37]
+</details>
+
+## - Question
+  * Find out the size of the human chromosome 4 for assembly hg19 (GRCh37).
+
+<details>
+  <summary> Show answer </summary>
+![][sizechr4]
+</details>
+
+## - Question
+**Go back to http://ensembl.org.**
+
+  * What is the version of the genome assembly of the Naked mole-rat (female)? (Heterocephalus glaber)
+
+<details>
+  <summary> Show answer </summary>
+![][nakedmolerat]
+</details>
+
+  * How many genes were predicted by Genscan?
+
+<details>
+  <summary> Show answer </summary>
+![][nakedmolerat_genes]
+</details>
+
+## - Question
+  * How many alternative transcript gene BBS5 has (Human)
+
+<details>
+  <summary> Show answer </summary>
+![][bbs5_transcripts]
+</details>
+
+  * How many exons does transcript BBS5-205 have?
+
+<details>
+  <summary> Show answer </summary>
+![][bbs5-205exons]
+</details>
+
+  * How many coding exons?
+
+<details>
+  <summary> Show answer </summary>
+![][bbs5-205codingexons]
+</details>
+
+Comment – Go back to the "Gene: BBS5" tab and have a look at the colors of transcripts BBS5-201 and BBS5-202 in the genome browser view
+
+![][ensemblcolorcode]
+
+## - Question
+  * Retrieve this page
+
+![][question5]
+
+<details>
+  <summary> Show answer </summary>
+![][brca1_sequence]
+</details>
+
+## - Question
+  * Retrieve this page
+
+![][brca1_variation]
+
+<details>
+  <summary> Show answer </summary>
+
+  - Click on « configure this page » (left-bottom menu)
+  - Select Yes for « Show variations: »
+
+![][brca1_displayvariation]
+<details>
+
+## - Question
+Display RNAseq data for breast and skeletal muscle in the genome browser (in BRCA1 gene region).
+
+![][brca1_rnaseq]
+
+<details>
+  <summary> Show answer </summary>
+![][brca1_rnaseq1]
+
+
+![][brca1_rnaseq2]
+</details>
+
+# - Practical session: Biomart
+## - Retrieve information for 1 gene : IDH1
+### - Question
+
+Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
+Use Ensembl Gene v109, for Human GRCh38.p13:
+
+  * Click on Filters :
+    * Expand the GENE section
+    * Select « Input external references ID list »
+    * Select HGNC symbol(s) in the drop down menu
+    * Enter IDH1 in the text box
+  * Click on Attributes :
+    * Select “Features” (top panel, selected by default)
+    * Select Gene stable ID, Transcript stable ID, Gene Name
+
+<details>
+  <summary> Show answer </summary>
+
+  - Click on Filters (left panel)
+  - Expand the “GENE” section
+  - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
+  - Click on Count in the top left panel . You should get 1 / 69292 Genes.
+  - Click on Attributes (left menu)
+  - Select “Features” (selected by default)
+  - Select Gene stable ID, Transcript stable ID, Gene Name
+  - Click on Results (top left menu)
+
+**9 transcripts are found**
+
+</details>
+
+### - Question
+Extract all exon sequences of the IDH1 gene in fasta format. Headers will contain the Gene names, Transcript stable IDs and Exon stable IDs.
+
+<details>
+  <summary> Show answer </summary>
+You can leave the Dataset and Filters the same, and go directly to the Attributes section:
+
+  - Click on Attributes (left panel)
+  - Select “Sequences”
+  -  Expand the SEQUENCES section
+  -  Select Exon sequences
+  -  Expand “Header Information”
+  -  Unselect “Gene stable ID” (Gene Information)
+  -  Select Gene name (Gene Information), Transcript stable ID (Transcript Information) and Exon stable ID (Exon Information).
+  - Click on Results
+</details>
+
+### - Question
+Extract all coding sequences of the IDH1 gene in fasta format. Headers will contain the Transcript stable IDs and Exon stable IDs.
+
+<details>
+  <summary> Show answer </summary>
+You can leave the Dataset and Filters the same, and go directly to the
+Attributes section:
+
+  - Click on Attributes (left panel)
+  - In the SEQUENCES section: select Coding sequence
+  - In the “Header Information”: unselect Gene name (Gene Information) and keep Transcript stable ID (Transcript Information) and Exon stable IDs (Exon Information) selected.
+  - Click on Results
+</details>
+
+### - Question
+Retrieve GO-terms associated to the IDH1 gene (select GO Term Name, GO domain and GO Term Accession along with Gene stable ID, Transcript stable ID and Gene Name).
+
+<details>
+  <summary> Show answer </summary>
+You can leave the Dataset and Filters the same, and go directly
+to the Attributes section:
+
+  - Click on Attributes (left panel)
+  - Select “Features” (selected by default)
+  - In the GENE section: Gene stable ID, Transcript stable ID and Gene Name should be selected
+  - Expand the EXTERNAL section
+  - Select GO Term Name, GO domain and GO Term Accession
+  - Click on Results
+</details>
+
+### - Question
+Retrieve the germline variations found in this gene. Annotations to be found:
+
+  * Variant Name,
+  * Variant Alleles,
+  * Minor allele frequency,
+  * Chromosome/scaffold name,
+  * Chromosome/scaffold position start (bp),
+  * Chromosome/scaffold position end (bp),
+  * Variant Consequence along with Gene stable ID,
+  * Transcript stable ID
+  * Gene Name
+
+<details>
+  <summary> Show answer </summary>
+You can leave the Dataset and Filters the same, and go directly
+to the Attributes section:
+
+  - Click on Attributes (left panel)
+  - Select “Variant (Germline)”
+  - In the GENE section: Gene stable ID, Transcript stable ID and Gene Name should be selected
+  - Expand the GERMLINE VARIANT INFORMATION section
+  - Select:
+    - Variant Name,
+    - Variant Alleles,
+    - Minor allele frequency,
+    - Chromosome/scaffold name,
+    - Chromosome /scaffold position start (bp),
+    - Chromosome/scaffold position end (bp),
+    - Variant Consequence
+  - Click on Results
+</details>
+
+## - Retrieve information for many genes
+We have run an RNA-seq experiment and we have extracted upregulated genes.
+We are using RNAseq data from :
+
+*Strub, T., Giuliano, S., Ye, T., Bonet, C., Keime, C., Kobi, D., Le Gras, S., Cormont, M., Ballotti, R., and Bertolotto, C. (2011). Essential role of microphthalmia transcription factor for DNA replication, mitosis and genomic stability in melanoma. Oncogene 30, 2319–2332.*
+
+In this study, they compared the transcriptome in melanoma cell lines between cells with an siRNA against MITF or an siRNA against Luciferase (used as a control). The data are given as a TSV (Tab-Separated Values) file which contain the number of reads per genes. Genes are identified by their Ensembl gene IDs.
+
+Data have been analyzed using the **Human genome hg38/GRCh38 - Ensembl v95.**
+
+Here are the different column of the file to be analyzed:
+
+  * Gene id | Ensembl gene ID |
+  * siLuc2 | Raw read counts - control - 1st biological replicate |
+  * siLuc3 | Raw read counts - control - 2nd biological replicate | 	
+  * siMitf3 | Raw read counts - siMITF - 1st biological replicate | 	
+  * siMitf4 | Raw read counts - siMITF - 2nd biological replicate | 	
+  * norm.siLuc2 | Normalized read counts - control - 1st biological replicate | 	
+  * norm.siLuc3 | Normalized read counts - control - 2nd biological replicate | 	
+  * norm.siMitf3 | Normalized read counts - siMITF - 1st biological replicate | 	
+  * norm.siMitf4 | Normalized read counts - siMITF - 2nd biological replicate | 		
+  * ... | ... |
+
+### - Question
+Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbmc.fr/f/a1e03f1b711349489bd2/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
+
+  * gene IDs
+  * chromosome
+  * start of gene
+  * end of gene
+  * strand
+  * Associated Gene Name
+  * gene type
+
+<details>
+  <summary> Show answer </summary>
+In Ensembl/BioMart, create a new request using an archive of Ensembl v95.
+
+  - Click on Filters (left panel)
+  - Expand the GENE section
+  - Select “Input external references ID list” and select “Ensembl Gene ID(s)” in the drop down list
+  - Click on “Browse” and select the file siMitfvssiLuc.up.txt
+  - Click on “Count” (top left button). You should have: 3663/64914 Genes
+  - Click on Attributes (left panel)
+  -  Select “Features” (selected by default), select Ensembl Gene ID, Chromosome Name, Gene Start (bp), Gene End (bp), Strand, Associated Gene Name and Gene type.
+  -  Click on Results
+  -  Select Compressed file (.gz) in the drop down menu. Click on Go to download the resulting file.
+</details>
+
+### - Question
+You want to run a de novo motif discovery on all promoters of the upregulated genes (the ones from the file siMitfvssiLuc.up.txt). Extract the promoter sequences of all up-regulated genes: retrieve the 200nt upstream of the transcripts of these genes.
+
+<details>
+  <summary> Show answer </summary>
+Don’t change Dataset and Filters – simply click on Attributes.
+
+  - Click on Attributes (left panel)
+  - Select “Sequences”
+  - Expand the SEQUENCES section
+  - Select Flank (Transcript) and enter 200 in the Upstream flank text box
+  - Expand the Header information section
+  - Select, in addition to the default selected attributes, Description and Associated Gene Name
+
+**TIPS**
+
+Flank (Transcript) will give the flanks for all transcripts of a gene with multiple transcripts. Flank (Gene) will give the flanks for one possible transcript in a gene (the most 5’ coordinates for upstream flanking).
+</details>
+
+## - Retrieve information using genomic coordinates
+**Use Biomart of current version of Ensembl**.
+
+### - Question
+How many genes are located in the genomic region: 2:208226227-208276270.
+
+<details>
+  <summary> Show answer </summary>
+In Ensembl/BioMart, create a new request:
+
+  - Click on Filters (left panel)
+  - Expand the REGION section
+  - Select “Multiple Chromosomal Regions” and enter 2:208226227:208276270 in the text box
+  - Click on Count
+
+** 4 genes are found**
+</details>
+
+### - Question
+Extract the coordinates of all human genes located on chromosomes (exclude scaffolds). Information to extract for each gene:
+
+  * Gene stable ID
+  * Chromosome/scaffold name
+  * Gene Start (bp)
+  * Gene End (bp)
+  * strand
+  * Gene Name
+
+<details>
+  <summary> Show answer </summary>
+In Ensembl/BioMart, create a new request (see slide 2.)
+
+  - Click on Filters (left panel)
+  - Expand the REGION section
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 61487 / 68005 Genes
+  - Click on Attributes (left panel)
+  - Select “Features” (selected by default)
+  - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
+  - Click on Results
+</details>
+
+## - Question
+The following is a list of 11 IDs of human proteins from the [NCBI RefSeq database](http://www.ncbi.nlm.nih.gov/projects/RefSeq/):
+
+  * NP_001218
+  * NP_203125
+  * NP_203124
+  * NP_203126
+  * NP_001007233
+  * NP_150636
+  * NP_150635
+  * NP_001214
+  * NP_150637
+  * NP_150634
+  * NP_150649
+
+Generate a list that shows to which Gene stable IDs and to which Gene names these RefSeq IDs correspond. Do these 11 proteins correspond to 11 genes?
+
+<details>
+  <summary> Show answer </summary>
+  - Click New.
+  - Choose the ENSEMBL Genes 109 database.
+  - Choose the Homo sapiens genes (GRCh38.p13) dataset.
+
+  - Click on Filters in the left panel.
+  - Expand the GENE section by clicking on the + box.
+  - Select ID list limit - RefSeq peptide ID(s) and enter the list of IDs in the text box (either comma separated or as a list).
+  - HINT: You may have to scroll down the menu to see these.
+
+  - Count shows 4 genes (remember one gene may have multiple splice variants coding for different proteins, that is the reason why these 11 do not correspond to 11 genes).
+
+  - Click on Attributes in the left panel.
+  - Select the Features attributes page.
+  - Expand the External section by clicking on the + box.
+  - Select Gene name and RefSeq Protein ID from the External References section.
+
+  - Click the Results button on the toolbar.
+  - Select View All rows as HTML or export all results to a file. Tick the box Unique results only.
+</details>
+
+## - Bonus
+Forrest et al performed a microarray analysis of peripheral blood mononuclear cell gene expression in benzene-exposed workers (Environ Health Perspect. 2005 June; 113(6): 801–807). The microarray used was the human Affymetrix U133A/B (also called U133 plus 2) GeneChip. The top 8 up-regulated probe-sets were:
+
+  * 207630_s_at
+  * 221840_at
+  * 219228_at
+  * 204924_at
+  * 227613_at
+  * 223454_at
+  * 228962_at
+  * 214696_at
+
+### - Question
+Retrieve for the genes corresponding to these probe-sets the Gene and Transcript stable IDs as well as their Gene names and descriptions.
+
+<details>
+  <summary> Show answer </summary>
+  * Click New.
+  * Choose the ENSEMBL Genes 109 database.
+  * Choose the Homo sapiens genes (GRCh38.p13) dataset.
+
+  * Click on Filters in the left panel.
+  * Expand the GENE section by clicking on the + box.
+  * Select ID list limit - Affy hg u133 plus 2 probeset ID(s) and enter the list of probeset IDs in the text box (either comma separated or as a list).
+
+  * Count shows 9 genes match this list of probesets.
+
+  * Click on Attributes in the left panel.
+  * Select the Features attributes page.
+  * Expand the GENE section by clicking on the + box.
+  * In addition to the default selected attributes, select Description.
+  * Expand the External section by clicking on the + box.
+  * Select Gene name from the External References section and AFFY HG U133-PLUS-2 from the Microarray Attributes section.
+
+  * Click the Results button on the toolbar.
+  * Select View All rows as HTML or export all results to a file. Tick the box Unique results only.
+  * Your results should show that the 11 probes map to 9 Ensembl genes.
+
+</details>
+
+
+### - Question
+In order to be able to study these human genes in mouse, identify their mouse orthologues. Also retrieve the genomic coordinates of these orthologues.
+
+<details>
+  <summary> Show answer </summary>
+  * You can leave the Dataset and Filters the same, and go directly to the Attributes section:
+
+  * Click on Attributes in the left panel.
+  * Select the Homologs attributes page.
+  * Expand the GENE section by clicking on the + box.
+  * Select Associated Gene Name.
+  * Deselect Ensembl Transcript ID.
+  * Expand the ORTHOLOGS section by clicking on the + box.
+  * Select Mouse Ensembl Gene stable ID, Mouse chromosome/scaffold name, Mouse chromosome/scaffold Start (bp) and Mouse chromosome/scaffold End (bp).
+
+  * Click the Results button on the toolbar.
+  * Check the box Unique results only. Select View All rows as HTML or export all results to a file.
+
+**Your results should show that for most of the human genes has least one mouse orthologue.**
+
+</details>
+
+# - Credits
+
+Some exercices are taken from [Ensembl tutorials](http://www.ebi.ac.uk/seqdb/confluence/display/ENSEXT/Ensembl+exercises).
+
+[humangenomeassembly]: images/Ensembl/humangenomeassembly.png "Human genome assembly"
+[numberofgenehuman]: images/Ensembl/numberofgenehuman.png "number of Human genes"
+[numberofgenehumangrch37]: images/Ensembl/numberofgenehumangrch37.png "number of Human genes grch37"
+[sizechr4]: images/Ensembl/sizechr4.png "Chr4 length"
+[nakedmolerat]: images/Ensembl/nakedmolerat.png "naked mole rat"
+[nakedmolerat_genes]: images/Ensembl/nakedmolerat_genes.png "naked mole rat genes"
+[bbs5_transcripts]: images/Ensembl/bbs5_transcripts.png "bbs5 transcripts"
+[bbs5-205exons]: images/Ensembl/bbs5-205exons.png "bbs5-205 exons"
+[bbs5-205codingexons]: images/Ensembl/bbs5-205codingexons.png "bbs5-205 coding exons"
+[ensemblcolorcode]: images/Ensembl/ensemblcolorcode.png "Ensembl color code"
+[question5]: images/Ensembl/question5.png "question5"
+[brca1_sequence]: images/Ensembl/brca1_sequence.png "brca1 sequence"
+[brca1_variation]: images/Ensembl/brca1_variation.png "brca1 variants"
+[brca1_displayvariation]: images/Ensembl/brca1_displayvariation.png "brca1 display variants"
+[brca1_rnaseq]: images/Ensembl/brca1_rnaseq.png "brca1 rnaseq"
+[brca1_rnaseq1]: images/Ensembl/brca1_rnaseq1.png "brca1 rnaseq 1"
+[brca1_rnaseq2]: images/Ensembl/brca1_rnaseq2.png "brca1 rnaseq 2"
