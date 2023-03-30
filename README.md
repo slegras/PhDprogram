@@ -2,7 +2,7 @@
 
 | Course | Training material |
 |----------------------------------|----------|
-| Introduction to Ensembl/BioMart - Lecture | [pdf](EnsemblBiomart.pdf) |
+| Introduction to Ensembl/BioMart - Lecture | [pdf](PhDprogramme_ensembl.pdf) |
 | Introduction to Ensembl/BioMart - Hands-on | [HTML](https://slegras.github.io/PhDprogram/Ensembl.html) |
 
 
