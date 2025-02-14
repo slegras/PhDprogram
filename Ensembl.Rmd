@@ -1,7 +1,7 @@
 ---
 title: "PhD program - Introduction to Ensembl Genome Browser/Biomart"
 author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
-date: "2023 March 30th"
+date: "2025 February 24th"
 output:
   html_document:
     fig_caption: yes
@@ -17,10 +17,11 @@ output:
     keep_tex: yes
     toc: yes
     toc_depth: 2
+bibliography: references.bib    
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/PhDprogram")
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2025/PhDprogram")
 ```
 
 $^1$ GenomEast platform, IGBMC
@@ -35,7 +36,7 @@ $^1$ GenomEast platform, IGBMC
 </details>
 
 
-  * How many coding genes does the Human genome contain in the current Ensembl release (v109)?
+  * How many coding genes does the Human genome contain in the current Ensembl release (v113)?
 
 <details>
   <summary> Show answer </summary>
@@ -68,7 +69,7 @@ $^1$ GenomEast platform, IGBMC
 ![][nakedmolerat]
 </details>
 
-  * How many genes were predicted by Genscan?
+  * How many coding genes does the Naked mole-rat female genome contain?
 
 <details>
   <summary> Show answer </summary>
@@ -143,7 +144,7 @@ Display RNAseq data for breast and skeletal muscle in the genome browser (in BRC
 ### - Question
 
 Using Ensembl/BioMart, retrieve all transcripts IDs and the gene ID of IDH1 gene (human). How many transcripts the gene IDH1 has?
-Use Ensembl Gene v109, for Human GRCh38.p13:
+Use Ensembl Gene v113, for Human GRCh38.p14:
 
   * Click on Filters :
     * Expand the GENE section
@@ -160,7 +161,7 @@ Use Ensembl Gene v109, for Human GRCh38.p13:
   - Click on Filters (left panel)
   - Expand the “GENE” section
   - Select “Input external references ID list”, select “Gene Name(s)" in the drop down list and enter IDH1.
-  - Click on Count in the top left panel . You should get 1 / 69292 Genes.
+  - Click on Count in the top left panel . You should get 1 / 86402 Genes.
   - Click on Attributes (left menu)
   - Select “Features” (selected by default)
   - Select Gene stable ID, Transcript stable ID, Gene Name
@@ -274,7 +275,7 @@ Here are the different column of the file to be analyzed:
   * ... | ... |
 
 ### - Question
-Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbmc.fr/f/a1e03f1b711349489bd2/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
+Download the file [simitfvssiluc-up.tsv](https://seafile.igbmc.fr/f/5ba9c86a747043bca289/?dl=1) to extract gene annotations using Ensembl/BioMart for those genes. Use the column Gene ID to extract annotations. Annotations to extract are:
 
   * gene IDs
   * chromosome
@@ -286,13 +287,13 @@ Download and uncompress the file [simitfvssiluc-up.tsv.zip](https://seafile.igbm
 
 <details>
   <summary> Show answer </summary>
-In Ensembl/BioMart, create a new request using an archive of Ensembl v95.
+In Ensembl/BioMart, create a new request using current version of Ensembl. How many genes are lost between/have changed between Ensembl v95 and current version?
 
   - Click on Filters (left panel)
   - Expand the GENE section
   - Select “Input external references ID list” and select “Ensembl Gene ID(s)” in the drop down list
   - Click on “Browse” and select the file siMitfvssiLuc.up.txt
-  - Click on “Count” (top left button). You should have: 3663/64914 Genes
+  - Click on “Count” (top left button). You should have: 3649 / 86402 Genes Genes
   - Click on Attributes (left panel)
   -  Select “Features” (selected by default), select Ensembl Gene ID, Chromosome Name, Gene Start (bp), Gene End (bp), Strand, Associated Gene Name and Gene type.
   -  Click on Results
@@ -319,7 +320,6 @@ Flank (Transcript) will give the flanks for all transcripts of a gene with multi
 </details>
 
 ## - Retrieve information using genomic coordinates
-**Use Biomart of current version of Ensembl**.
 
 ### - Question
 How many genes are located in the genomic region: 2:208226227-208276270.
@@ -348,11 +348,11 @@ Extract the coordinates of all human genes located on chromosomes (exclude scaff
 
 <details>
   <summary> Show answer </summary>
-In Ensembl/BioMart, create a new request
+In Ensembl/BioMart, create a new request (see slide 2.)
 
   - Click on Filters (left panel)
   - Expand the REGION section
-  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 62656 / 69299 Genes
+  - Select “Chromosome” and multiple select 1 -> MT (click and drag). This corresponds to 78724 / 86402 Genes
   - Click on Attributes (left panel)
   - Select “Features” (selected by default)
   - In GENE, select Gene stable ID, Chromosome/scaffold name, Gene Start (bp), Gene End (bp), strand and Gene Name
@@ -379,8 +379,8 @@ Generate a list that shows to which Gene stable IDs and to which Gene names thes
 <details>
   <summary> Show answer </summary>
   - Click New.
-  - Choose the ENSEMBL Genes 109 database.
-  - Choose the Homo sapiens genes (GRCh38.p13) dataset.
+  - Choose the ENSEMBL Genes 113 database.
+  - Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   - Click on Filters in the left panel.
   - Expand the GENE section by clicking on the + box.
@@ -416,12 +416,12 @@ Retrieve for the genes corresponding to these probe-sets the Gene and Transcript
 <details>
   <summary> Show answer </summary>
   * Click New.
-  * Choose the ENSEMBL Genes 109 database.
-  * Choose the Homo sapiens genes (GRCh38.p13) dataset.
+  * Choose the ENSEMBL Genes 113 database.
+  * Choose the Homo sapiens genes (GRCh38.p14) dataset.
 
   * Click on Filters in the left panel.
   * Expand the GENE section by clicking on the + box.
-  * Select ID list limit - Affy hg u133 plus 2 probeset ID(s) and enter the list of probeset IDs in the text box (either comma separated or as a list).
+  * Select Input microarray probes/probesets ID list - AFFY HG U133 Plus 2 probe ID(s) and enter the list of probeset IDs in the text box (either comma separated or as a list).
 
   * Count shows 9 genes match this list of probesets.
 
@@ -464,6 +464,9 @@ In order to be able to study these human genes in mouse, identify their mouse or
 # - Credits
 
 Some exercices are taken from [Ensembl tutorials](http://www.ebi.ac.uk/seqdb/confluence/display/ENSEXT/Ensembl+exercises).
+
+# - Ensembl mirror
+http://useast.ensembl.org/index.html
 
 [humangenomeassembly]: images/Ensembl/humangenomeassembly.png "Human genome assembly"
 [numberofgenehuman]: images/Ensembl/numberofgenehuman.png "number of Human genes"
